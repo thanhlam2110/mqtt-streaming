@@ -9,7 +9,7 @@ def on_message(client, userdata, msg):
     print(" Topic : "+str(msg.topic)+"  and Message is : "+str(msg.payload))
 
 def on_subscribe(client, userdata,mid, granted_qos):
-    print "userdata : " +str(userdata)
+    print ("userdata : " +str(userdata))
 
 mqttc = mqtt.Client("Python-MQTT-Pub-Sub")
 mqttc.on_connect = on_connect
@@ -22,7 +22,7 @@ text_file.write("Start: %s" % datetime.datetime.now().time())
 text_file.close()
 while i<1000000:
     mqttc.publish("mqtt-topic",i)
-    print "publish message " + str(i)
+    print ("publish message " + str(i))
     i+=1
 text_file = open("stop.txt", "w")
 text_file.write("Stop: %s" % datetime.datetime.now().time())
